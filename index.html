@@ -1,24 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jogo de Labirinto</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Jogo de Labirinto</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="game-container">
-    <canvas id="game-canvas"></canvas>
+  <div id="item-counter">
+    <img class="backpack-image" src="images/itens/backpack-image.png" alt="item-count">
+    <p id="count">0/7</p> 
   </div>
   
-  <!-- Popup que será exibido quando um item for coletado -->
-  <div id="popup" class="hidden">
-    <div id="popup-content">
-      <p id="popup-text">Informação sobre o item</p>
-      <button id="close-popup">Fechar</button>
+  <div id="container">
+    
+    <div class="border-game">
+      <div id="maze">
+        <!-- Estrutura das paredes do labirinto -->
+        <div class="wall" style="position: absolute; top: 10px; left: 100px; width: 50px; height: 6px;"></div>
+        <div class="wall" style="position: absolute; top: 10px; left: 80px; width: 6px; height: 440px;"></div>
+
+        <!-- Itens em locais fixos -->
+        
+        
+
+        <!-- Ponto final com imagem -->
+        <div class="end-point" style="background-image: url('images/itens/backpack-image.pngpng'); background-size: cover;"></div>
+      </div>
     </div>
   </div>
 
+  <div id="controls">
+    <button onclick="movePlayer('up')">⬆️</button>
+    <button onclick="movePlayer('left')">⬅️</button>
+    <button onclick="movePlayer('down')">⬇️</button>
+    <button onclick="movePlayer('right')">➡️</button>
+  </div>
   <script src="game.js"></script>
 </body>
 </html>
