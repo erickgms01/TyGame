@@ -8,8 +8,8 @@ maze.appendChild(player);
 const items = [];
 let collectedCount = 0; 
 
-
-
+const movementSound = new Audio("assets/songs/movement.mp3")
+const coinSound = new Audio("assets/songs/coin.mp3")
 // Crie os itens em locais fixos
 const itemPositions = [
     { top: '15px', left: '131px', backgroundImage: "url('assets/images/itens/sleeping.png')"},
@@ -18,7 +18,7 @@ const itemPositions = [
     { top: '195px', left: '431px', backgroundImage: "url('assets/images/itens/sleeping.png')" },
     { top: '300px', left: '150px', backgroundImage: "url('assets/images/itens/sleeping.png')" },
     { top: '350px', left: '50px', backgroundImage: "url('assets/images/itens/sleeping.png')" },
-    { top: '400px', left: '300px', backgroundImage: "url('assets/images/itens/sleeping.png')" }
+    { top: '25x', left: '15px', backgroundImage: "url('assets/images/itens/sleeping.png')" }
 ];
 
 itemPositions.forEach((pos, index) => {
@@ -46,7 +46,7 @@ function movePlayer(direction) {
     if (direction === 'down') playerPosition.top += 20;
     if (direction === 'left') playerPosition.left -= 20;
     if (direction === 'right') playerPosition.left += 20;
-
+  
     // Atualiza a posição do jogador
     player.style.top = `${playerPosition.top}px`;
     player.style.left = `${playerPosition.left}px`;
@@ -83,8 +83,10 @@ function movePlayer(direction) {
     // Detectar coleta de itens
     items.forEach((item, index) => {
         if (detectCollision(player, item)) {
+            coinSound.play()
             item.style.display = 'none'; // Oculta o item
             collectedCount++; // Incrementa o contador
+            
             document.getElementById('count').textContent = `${collectedCount}/7`;
             alert(`Você pegou o item ${index + 1}`);
         }
@@ -114,5 +116,4 @@ document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') movePlayer('left');
     if (event.key === 'ArrowRight') movePlayer('right');
 });
-
 
