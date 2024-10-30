@@ -1,0 +1,44 @@
+header {
+    background-color: #ffffff;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo-mais-saude {
+    width: 10vh; 
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    color: #000000;
+    text-decoration: none;
+  }
+
+  .login-button {
+    background-color: #069886;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+  }

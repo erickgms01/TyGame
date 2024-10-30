@@ -1,0 +1,19 @@
+{
+  "name": "mais_saude_web",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "- `public/`: Contém arquivos estáticos que serão servidos ao navegador, incluso HTML principal;\r - `src/`: Contém o código-fonte do projeto;\r     - `controllers/`: Contém os controladores responsáveis pela lógica da aplicação;\r     - `routes/`: Contém os gerenciadores de rotas;\r     - `views/`: Contém os arquivos relacionados ao elementos visuais da aplicação;\r         - `assets/`: Contém os arquivos estáticos (imagens, fontes e etc);\r         - `components/`: Contém os elementos que são reutilizáveis  no projeto;\r         - `pages/`: Contém os arquivos responsáveis pela visualização de páginas da aplicação (componentes específicos);\r         - `styles/`: Contém os arquivos de estilos.\r ## Padrão de código a ser utilizado: \r   - Todo texto (menos comentário) deverá ser escrito em inglês.\r   - Os nomes de arquivos obrigatoriamente deverão ser escritos usando a convenção Snake case \"minusculas_underline\".\r   - Os nomes de classes deverão, obrigatoriamente, ser escritos usando Pascal case \"PrimeirasLetrasMaiusculas\".\r   - Os nomes de funções, métodos, variáveis ou constantes deverão ser escritos usando Camel case \"primeiraPalavraPrimeiraLetraMinusculaORestanteNao\".\r   - Ao criar as funções, métodos, variáveis ou constantes, levar em consideração a funcionalidade para a escolha do nome, utilizar nomes que facilitem a compreensão.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.3",
+    "path": "^0.12.7",
+    "url": "^0.11.3"
+  }
+}

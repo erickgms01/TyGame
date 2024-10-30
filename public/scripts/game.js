@@ -13,13 +13,13 @@ const coinSound = new Audio("assets/songs/coin.mp3")
 
 // Crie os itens em locais fixos
 const itemPositions = [
-    { top: '15px', left: '131px', backgroundImage: "url('assets/images/itens/sleeping.png')"},
-    { top: '135px', left: '371px', backgroundImage: "url('assets/images/itens/sleeping.png')"},
-    { top: '15px', left: '551px', backgroundImage: "url('assets/images/itens/sleeping.png')" },
-    { top: '195px', left: '431px', backgroundImage: "url('assets/images/itens/sleeping.png')" },
-    { top: '300px', left: '150px', backgroundImage: "url('assets/images/itens/sleeping.png')" },
-    { top: '350px', left: '50px', backgroundImage: "url('assets/images/itens/sleeping.png')" },
-    { top: '25x', left: '15px', backgroundImage: "url('assets/images/itens/sleeping.png')" }
+    { top: '15px', left: '131px', backgroundImage: "url('./assets/game/images/itens/sleeping.png')"},
+    { top: '135px', left: '371px', backgroundImage: "url('./assets/game/images/itens/sleeping.png')"},
+    { top: '15px', left: '551px', backgroundImage: "url('./assets/game/images/itens/sleeping.png')" },
+    { top: '195px', left: '431px', backgroundImage: "url('./assets/game/images/itens/sleeping.png')" },
+    { top: '300px', left: '150px', backgroundImage: "url('./assets/game/images/itens/sleeping.png')" },
+    { top: '350px', left: '50px', backgroundImage: "url('./assets/game/images/itens/sleeping.png')" },
+    { top: '25x', left: '15px', backgroundImage: "url('./assets/game/images/itens/sleeping.png')" }
 ];
 
 itemPositions.forEach((pos, index) => {
