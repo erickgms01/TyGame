@@ -7,25 +7,48 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  
   <div id="item-counter">
-    <img class="backpack-image" src="images/itens/backpack-image.png" alt="item-count">
+    <img class="backpack-image" src="assets/images/itens/backpack-image.png" alt="item-count">
     <p id="count">0/7</p> 
   </div>
   
   <div id="container">
     
     <div class="border-game">
+      <audio id="soundtrack" src="assets/songs/game-soundtrack.mp3" autoplay loop> </audio>
       <div id="maze">
         <!-- Estrutura das paredes do labirinto -->
-        <div class="wall" style="position: absolute; top: 10px; left: 100px; width: 50px; height: 6px;"></div>
-        <div class="wall" style="position: absolute; top: 10px; left: 80px; width: 6px; height: 440px;"></div>
+        <div class="wall" style="position: absolute; top: 68px; left: 55px; width: 6px; height: 110px;"></div>
+        <div class="wall" style="position: absolute; top: 175px; left: 0px; width: 120px; height: 6px;"></div>
+        <div class="wall" style="position: absolute; top:-3px; left: 115px; width: 6px; height: 122px;"></div>
+        <div class="wall" style="position: absolute; top: 114px; left: 119px; width: 180px; height: 6px;"></div>
+        <div class="wall" style="position: absolute; top: -3px; left: 179px; width: 6px; height: 60px;"></div>
+        <div class="wall" style="position: absolute; top: 60px; left: 235px; width: 6px; height: 60px;"></div>
+        <div class="wall" style="position: absolute; top: 114px; left: 295px; width: 6px; height: 135px;"></div>
+        <div class="wall" style="position: absolute; top: 243px; left: 296px; width: 65px; height: 6px;"></div>
+        <div class="wall" style="position: absolute; top: 55px; left: 358px; width: 6px; height: 130px;"></div>
+        <div class="wall" style="position: absolute; top: 52px; left: 303px; width: 60px; height: 6px;"></div>
+        <div class="wall" style="position: absolute; top: -3px; left: 418px; width: 6px; height: 70px;"></div>
+        <div class="wall" style="position: absolute; top: 180px; left: 360px; width: 180px; height: 6px;"></div>
+        <div class="wall" style="position: absolute; top: 120px; left: 360px; width: 120px; height: 6px;"></div>
+        <div class="wall" style="position: absolute; top: 55px; left: 475px; width: 6px; height: 70px;"></div>
+        <div class="wall" style="position: absolute; top: -3px; left: 538px; width: 6px; height: 190px;"></div>
+        <div class="wall" style="position: absolute; top: 60px; left:540px; width: 150px; height: 6px;"></div>
+        <div class="wall" style="position: absolute; top: 60px; left: 760px; width: 60px; height: 6px;"></div>
+        <div class="wall" style="position: absolute; top: 60px; left: 760px; width: 6px; height: 60px;"></div>
+        <div class="wall" style="position: absolute; top: 115px; left: 705px; width: 60px; height: 6px;"></div>
+        <div class="wall" style="position: absolute; top: 120px; left: 705px; width: 6px; height: 60px;"></div>
+        <div class="wall" style="position: absolute; top: 180px; left: 420px; width: 6px; height: 70px;"></div>
+        <div class="wall" style="position: absolute; top: 245px; left: 420px; width: 335px; height: 6px;"></div>
+        <div class="wall" style="position: absolute; top: 130px; left: 620px; width: 6px; height: 120px;"></div>
 
         <!-- Itens em locais fixos -->
         
         
 
         <!-- Ponto final com imagem -->
-        <div class="end-point" style="background-image: url('images/itens/backpack-image.pngpng'); background-size: cover;"></div>
+        <div class="end-point" style="background-image: url('assets/images/itens/backpack-image.png'); background-size: cover;"></div>
       </div>
     </div>
   </div>
@@ -38,4 +61,6 @@
   </div>
   <script src="game.js"></script>
 </body>
-</html>
+</html> |
+
+

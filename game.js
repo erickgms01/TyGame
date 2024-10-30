@@ -6,17 +6,19 @@ player.style.left = '11px';
 maze.appendChild(player);
 
 const items = [];
-let collectedCount = 0; // Contador de itens coletados
+let collectedCount = 0; 
+
+
 
 // Crie os itens em locais fixos
 const itemPositions = [
-    { top: '50px', left: '150px' },
-    { top: '100px', left: '200px' },
-    { top: '200px', left: '100px' },
-    { top: '250px', left: '250px' },
-    { top: '300px', left: '150px' },
-    { top: '350px', left: '50px' },
-    { top: '400px', left: '300px' }
+    { top: '15px', left: '131px', backgroundImage: "url('assets/images/itens/sleeping.png')"},
+    { top: '135px', left: '371px', backgroundImage: "url('assets/images/itens/sleeping.png')"},
+    { top: '15px', left: '551px', backgroundImage: "url('assets/images/itens/sleeping.png')" },
+    { top: '195px', left: '431px', backgroundImage: "url('assets/images/itens/sleeping.png')" },
+    { top: '300px', left: '150px', backgroundImage: "url('assets/images/itens/sleeping.png')" },
+    { top: '350px', left: '50px', backgroundImage: "url('assets/images/itens/sleeping.png')" },
+    { top: '400px', left: '300px', backgroundImage: "url('assets/images/itens/sleeping.png')" }
 ];
 
 itemPositions.forEach((pos, index) => {
@@ -24,19 +26,18 @@ itemPositions.forEach((pos, index) => {
     item.classList.add('item');
     item.style.top = pos.top;
     item.style.left = pos.left;
-    item.style.backgroundImage = "url('images/itens/sleeping.png')"; // Substitua pelo seu caminho de imagem
+    item.style.backgroundImage = pos.backgroundImage;
     item.onclick = () => {
         item.style.display = 'none';
         collectedCount++;
-        document.getElementById('item-counter').textContent = `Itens coletados: ${collectedCount}`;
-        alert(`Você pegou o item ${index + 1}`);
+        document.getElementById('item-counter').textContent = "Itens coletados: ${collectedCount}";
+        
     };
     maze.appendChild(item);
     items.push(item);
 });
 
 let playerPosition = { top: 15, left: 11 };
-
 function movePlayer(direction) {
     const oldPosition = { ...playerPosition };
     
@@ -72,7 +73,7 @@ function movePlayer(direction) {
     }
 
     if (collisionDetected) {
-        playerPosition = oldPosition; 
+        playerPosition = oldPosition;
     }
 
     // Atualiza a posição do jogador caso tenha colidido
@@ -113,3 +114,5 @@ document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') movePlayer('left');
     if (event.key === 'ArrowRight') movePlayer('right');
 });
+
+
