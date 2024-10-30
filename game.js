@@ -10,6 +10,7 @@ let collectedCount = 0;
 
 const movementSound = new Audio("assets/songs/movement.mp3")
 const coinSound = new Audio("assets/songs/coin.mp3")
+
 // Crie os itens em locais fixos
 const itemPositions = [
     { top: '15px', left: '131px', backgroundImage: "url('assets/images/itens/sleeping.png')"},
@@ -31,7 +32,6 @@ itemPositions.forEach((pos, index) => {
         item.style.display = 'none';
         collectedCount++;
         document.getElementById('item-counter').textContent = "Itens coletados: ${collectedCount}";
-        
     };
     maze.appendChild(item);
     items.push(item);
@@ -40,7 +40,7 @@ itemPositions.forEach((pos, index) => {
 let playerPosition = { top: 15, left: 11 };
 function movePlayer(direction) {
     const oldPosition = { ...playerPosition };
-    
+    movementSound.play()
     // Mover o jogador na direção especificada
     if (direction === 'up') playerPosition.top -= 20;
     if (direction === 'down') playerPosition.top += 20;
@@ -51,6 +51,7 @@ function movePlayer(direction) {
     player.style.top = `${playerPosition.top}px`;
     player.style.left = `${playerPosition.left}px`;
 
+   
     // Detectar colisão com as paredes
     const wallElements = document.querySelectorAll('.wall');
     let collisionDetected = false;
