@@ -10,10 +10,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-
 </head>
 <body>
- 
+  
   <div id="item-counter">
     <img class="backpack-image" src="./assets/game/images/itens/backpack-image.png" alt="item-count">
     <p id="count">0/7</p> 
@@ -21,9 +20,9 @@
   
   <div id="container">
     
-    <div id="card-container"></div> 
+    <div id="card-container"></div>   
     <div class="border-game">
-      
+          
       <div id="maze">
         <!-- Estrutura das paredes do labirinto -->
         <div class="wall" style="position: absolute; top: 68px; left: 55px; width: 6px; height: 110px;"></div>
@@ -50,24 +49,7 @@
         <div class="wall" style="position: absolute; top: 245px; left: 420px; width: 335px; height: 6px;"></div>
         <div class="wall" style="position: absolute; top: 130px; left: 620px; width: 6px; height: 120px;"></div>
         
-        <!-- paredes novas-->
-        <div class="wall" style="position: absolute; top: 175px; left: 170px; width: 60px; height: 6px;"></div>
-        <div class="wall" style="position: absolute; top: 178px; left: 224px; width: 6px; height: 130px;"></div>
-        <div class="wall" style="position: absolute; top: 240px; left: 50px; width: 115px; height: 6px;"></div>
-        <div class="wall" style="position: absolute; top: 240px; left: 50px; width: 6px; height: 70px;"></div>
-        <div class="wall" style="position: absolute; top: 305px; left: -3px; width: 55px; height: 6px;"></div>
-        <div class="wall" style="position: absolute; top: 305px; left: 120px; width: 370px; height: 6px;"></div>
-        <div class="wall" style="position: absolute; top: 305px; left: 120px; width: 6px; height: 60px;"></div>
-        <div class="wall" style="position: absolute; top: 360px; left: -3px; width: 128px; height: 6px;"></div>
-        <div class="wall" style="position: absolute; top:245px; left: 550px; width: 6px; height: 120px;"></div>
-        <div class="wall" style="position: absolute; top: 360px; left: 490px; width: 128px; height: 6px;"></div>
-        <div class="wall" style="position: absolute; top: 305px; left: 620px; width: 134px; height: 6px;"></div>
-        <div class="wall" style="position: absolute; top: 305px; left: 748px; width: 6px; height: 120px;"></div>
-        <div class="wall" style="position: absolute; top: 305px; left: 280px; width: 6px; height: 60px;"></div>
-        <div class="wall" style="position: absolute; top: 360px; left: 180px; width: 105px; height: 6px;"></div>
-        <div class="wall" style="position: absolute; top: 363px; left:400px; width: 6px; height: 60px;"></div>
-        <!-- Itens em locais fixos -->
-        
+        <!-- 
 
         <!-- Ponto final com imagem -->
         <div class="end-point" style="background-image: url('assets/game/images/itens/backpack-image.png'); background-size: cover;"></div>
@@ -75,14 +57,6 @@
       </div>
     </div>
   </div>
-
-  <div id="controls">
-    <button onclick="movePlayer('up')">⬆️</button>
-    <button onclick="movePlayer('left')">⬅️</button>
-    <button onclick="movePlayer('down')">⬇️</button>
-    <button onclick="movePlayer('right')">➡️</button>
-  </div>
-
 
   <script src=".\scripts\game.js"></script>
 </body>

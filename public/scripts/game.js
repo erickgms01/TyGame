@@ -5,6 +5,9 @@ player.style.top = '15px';
 player.style.left = '11px';
 maze.appendChild(player);
 
+let isDragging = false;
+let startX, startY;
+
 const items = [];
 let collectedCount = 0; 
 
@@ -14,6 +17,7 @@ const coinSound = new Audio("assets/game/songs/coin.mp3")
 function showCard(title, description, imageUrl) {
     const cardContainer = document.getElementById('card-container');
     cardContainer.style.zIndex = 1;
+    
     // Cria o elemento do card
     const card = document.createElement('div');
     card.classList.add('item-card');
@@ -21,12 +25,12 @@ function showCard(title, description, imageUrl) {
     // Define o conteúdo do card
     card.innerHTML = `<h2 class="card-title">${title}</h2>
     <div class="card-elements">
-        <img height="400px" src="${imageUrl}" alt="${title}" class="card-image">
-        <div>
+        <div class="left-section">
+            <img height="400px" src="${imageUrl}" alt="${title}" class="card-image">
+        </div> 
+        <div class='rigth-section'>
             <p class="card-description">${description}</p>
-            <div> 
-                <button id="submit-buttom" type="button" onclick="closeCard()">→</button>
-            </div> 
+            <button id="submit-buttom" type="button" onclick="closeCard()">→</button> 
         </div>
     </div>`
     ;
@@ -152,3 +156,78 @@ document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowRight') movePlayer('right');
 });
 
+
+
+// Iniciar o arraste ao tocar no jogador
+player.addEventListener('touchstart', (event) => {
+    isDragging = true;
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+});
+
+// Mover o jogador enquanto arrasta
+player.addEventListener('touchmove', (event) => {
+    if (!isDragging) return;
+
+    const touch = event.touches[0];
+    const deltaX = touch.clientX - startX;
+    const deltaY = touch.clientY - startY;
+
+    // Atualize a posição do jogador com base na diferença de posição
+    playerPosition.top += deltaY;
+    playerPosition.left += deltaX;
+
+    // Atualize a posição no estilo CSS do jogador
+    player.style.top = `${playerPosition.top}px`;
+    player.style.left = `${playerPosition.left}px`;
+
+    // Redefinir a posição inicial para o próximo movimento
+    startX = touch.clientX;
+    startY = touch.clientY;
+    
+    // Detectar colisões e coleta de itens
+    const wallElements = document.querySelectorAll('.wall');
+    let collisionDetected = false;
+    wallElements.forEach((wall) => {
+        if (detectCollision(player, wall)) {
+            collisionDetected = true;
+        }
+    });
+    const borderGame = document.querySelector('.border-game');
+    const borderRect = borderGame.getBoundingClientRect();
+    
+    if (playerPosition.top < 0 || 
+        playerPosition.left < 0 || 
+        playerPosition.top + player.offsetHeight > borderRect.height || 
+        playerPosition.left + player.offsetWidth > borderRect.width) {
+        collisionDetected = true; 
+    }
+
+    if (collisionDetected) {
+        playerPosition.top -= deltaY;
+        playerPosition.left -= deltaX;
+    }
+
+    player.style.top = `${playerPosition.top}px`;
+    player.style.left = `${playerPosition.left}px`;
+
+    items.forEach((item, index) => {
+        if (detectCollision(player, item)) {
+            coinSound.play();
+            item.style.display = 'none';
+            collectedCount++;
+            document.getElementById('count').textContent = `${collectedCount}/7`;
+            showCard('erick', 'perainda man', './assets/game/images/index/img/result1.png');
+        }
+    });
+    
+    const endPoint = document.querySelector('.end-point');
+    if (endPoint && detectCollision(player, endPoint)) {
+        alert("Parabéns, você completou o labirinto!");
+    }
+});
+
+// Parar o arraste ao soltar o toque
+player.addEventListener('touchend', () => {
+    isDragging = false;
+});
