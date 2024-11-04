@@ -8,18 +8,52 @@ maze.appendChild(player);
 const items = [];
 let collectedCount = 0; 
 
-const movementSound = new Audio("assets/songs/movement.mp3")
-const coinSound = new Audio("assets/songs/coin.mp3")
+const movementSound = new Audio("assets/game/songs/movement.mp3")
+const coinSound = new Audio("assets/game/songs/coin.mp3")
 
+function showCard(title, description, imageUrl) {
+    const cardContainer = document.getElementById('card-container');
+    cardContainer.style.zIndex = 1;
+    // Cria o elemento do card
+    const card = document.createElement('div');
+    card.classList.add('item-card');
+    
+    // Define o conteúdo do card
+    card.innerHTML = `<h2 class="card-title">${title}</h2>
+    <div class="card-elements">
+        <img height="400px" src="${imageUrl}" alt="${title}" class="card-image">
+        <div>
+            <p class="card-description">${description}</p>
+            <div> 
+                <button id="submit-buttom" type="button" onclick="closeCard()">→</button>
+            </div> 
+        </div>
+    </div>`
+    ;
+    
+  
+    // Adiciona o card no container
+    document.getElementById('card-container').appendChild(card);
+  }
+  
+  // Função para remover o card (pode ser chamada ao clicar em "Fechar")
+  function closeCard() {
+    const cardContainer = document.getElementById('card-container');
+    if (cardContainer.firstChild) {
+        cardContainer.style.zIndex = -1;
+        cardContainer.removeChild(cardContainer.firstChild);
+    }
+  }
+  
 // Crie os itens em locais fixos
 const itemPositions = [
-    { top: '15px', left: '131px', backgroundImage: "url('./assets/game/images/itens/sleeping.png')"},
-    { top: '135px', left: '371px', backgroundImage: "url('./assets/game/images/itens/sleeping.png')"},
-    { top: '15px', left: '551px', backgroundImage: "url('./assets/game/images/itens/sleeping.png')" },
-    { top: '195px', left: '431px', backgroundImage: "url('./assets/game/images/itens/sleeping.png')" },
-    { top: '300px', left: '150px', backgroundImage: "url('./assets/game/images/itens/sleeping.png')" },
-    { top: '350px', left: '50px', backgroundImage: "url('./assets/game/images/itens/sleeping.png')" },
-    { top: '25x', left: '15px', backgroundImage: "url('./assets/game/images/itens/sleeping.png')" }
+    { top: '15px', left: '131px',title: "rapaz", description: "",  backgroundImage: "url('./assets/game/images/itens/sleeping.png')"},
+    { top: '135px', left: '371px',title: "rapaz",  description: "",  backgroundImage: "url('./assets/game/images/itens/sleeping.png')"},
+    { top: '15px', left: '551px', title: "rapaz",  description: "", backgroundImage: "url('./assets/game/images/itens/sleeping.png')" },
+    { top: '195px', left: '431px', title: "rapaz",  description: "", backgroundImage: "url('./assets/game/images/itens/sleeping.png')" },
+    { top: '300px', left: '150px', title: "rapaz",  description: "", backgroundImage: "url('./assets/game/images/itens/sleeping.png')" },
+    { top: '350px', left: '50px', title: "rapaz",  description: "", backgroundImage: "url('./assets/game/images/itens/sleeping.png')" },
+    { top: '25x', left: '15px', title: "rapaz",  description: "", backgroundImage: "url('./assets/game/images/itens/sleeping.png')" }
 ];
 
 itemPositions.forEach((pos, index) => {
@@ -31,7 +65,7 @@ itemPositions.forEach((pos, index) => {
     item.onclick = () => {
         item.style.display = 'none';
         collectedCount++;
-        document.getElementById('item-counter').textContent = "Itens coletados: ${collectedCount}";
+        showCard(pos.title, pos.description, pos.backgroundImage);
     };
     maze.appendChild(item);
     items.push(item);
@@ -40,7 +74,7 @@ itemPositions.forEach((pos, index) => {
 let playerPosition = { top: 15, left: 11 };
 function movePlayer(direction) {
     const oldPosition = { ...playerPosition };
-    movementSound.play()
+  
     // Mover o jogador na direção especificada
     if (direction === 'up') playerPosition.top -= 20;
     if (direction === 'down') playerPosition.top += 20;
@@ -89,7 +123,7 @@ function movePlayer(direction) {
             collectedCount++; // Incrementa o contador
             
             document.getElementById('count').textContent = `${collectedCount}/7`;
-            alert(`Você pegou o item ${index + 1}`);
+            showCard('erick', 'perainda man', './assets/game/images/index/img/result1.png');
         }
     });
 
